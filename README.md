@@ -36,11 +36,28 @@
   - Used when model training encounter dataset is not enough or lack of variablity
     - data augmentation
 
-#### bagging/boosting/Adaboost
-
+#### bagging/boosting
+  - Ensemble methoods to combine multiple weak learners to form a strong learner.
+  - bagging
+    - models are built independently in bagging
+    - training data subsets are drawn randomly with a replacement for the training dataset.
+    - For reducing variance.
+    - e.g. Random forest
+  - boosting
+    - New models are affected by a previously built model’s performance in boosting.
+    - training data subsets comprises the elements that were misclassified by previous models.
+    - For reducing bias.
+    - e.g. Adaboost
+     
 #### decision tree/random forest
 
 #### k-means/k-nn/gaussian mixture model
+  - k-means
+    - Unsupervised learning
+    - Clustering algorithm that tries to partition a set of points into K sets (clusters) such that the points in each cluster tend to be near each other. It is unsupervised because the points have no external ground truth.
+  - k-nn
+    - Supervised learning
+    - Combining the classification of the K nearest points. It is supervised because you are trying to classify a point based on the known classification of other points.  
 
 #### evaluation metrics
   - AUC, ROC, PR
@@ -69,4 +86,5 @@
   - Adadelta
   - Adam
   - [Overview](https://ruder.io/optimizing-gradient-descent/)
+
 #### droput
