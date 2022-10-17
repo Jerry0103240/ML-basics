@@ -79,12 +79,30 @@
   - relu, sigmoid, tanh, softmax
 
 #### optimizer
+  - Batch, stochastic, mini-batch gradient descent
+    - Batch:
+      - compute the gradient from the entrie training dataset.
+    - Stochastic:
+      - compute the gradient from each training sample.
+      - suitable for online learning.
+    - Mini-batch:
+      - compute the gradient for each n training samples.
+      - reduce high variance of stochastic method, and increase the updating perfromance of batch method.
   - SGD
+    - compute gradient from each training sample, good choice for online learning.
   - Momentum
+    - SGD will face oscillation conidition, add previous gradient with fraction in current updating step.
+  - Nesterov (NAG)
+    - Momentum may go over, NAG pre-compute next approximate gradient for solving such situation.
   - Adagrad
+    - adaptive learning rate for each weight
+    - lower learning rate for frequent features, larger learning rate for infrequent features
+    - learning rate will shrink eventually, cause denominator is always positive
   - RMSProp
+    - For solving drawbacks of Adagrad, take exponential moving average of gradients as denominator.
   - Adadelta
   - Adam
+    - combine Adagrad & Momentum method.
   - [Overview](https://ruder.io/optimizing-gradient-descent/)
 
 #### droput
