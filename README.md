@@ -1,26 +1,21 @@
 # ML-basics
 
 #### Bias-variance tradeoff
-  - Model total error = bias + variance
-  - Bias is the distance between the predictions of a model and the true values.
-  - Variance of model predictions for given data points that tell us the spread of our data.
-  - High bias leads to underfitting; high variance leads to overfitting.
-  - Solution for underfitting (high bias):
-    - increasing training iterations or features or model complexity
-    - tuning model parameters
-    - removing regularization if used
-  - Solution for overfitting (high variance):
-    - early stopping
-    - tuning model parameters
-    - increasing training data
-    - decreasing training features dimensions or model complexity
-    - adding dropout or regularization if not used
+  - 模型評估指標: Bias + Variance
+    - Bias: 模型預估值和真實Label間的差異，過低代表模型欠擬合。
+    - Variance: 模型預估值的分散程度，過高代表模型對於小變動很敏感，容易導致泛化能力差，通常代表過擬合。
+  - 解決方案
+    - 欠擬合 (high bias):
+      - 增加訓練次數、特徵、模型複雜度
+      - 如果有使用正則化技術，先移除
+    - 過擬合 (high variance) 
+      - early stopping
+      - 減少特徵維度、模型複雜度
+      - 嘗試加入 dropout、正則化技術
 
-#### Linear vs logisitc regression
-  - Linear regression: for regression problems, range can exceed 0 or 1
-  - Logistic regression: for classification problems, range between 0 and 1
-  - Logistic regression is based on the concept of maximum likelihood estimation
-    - MLE is a technique for estimate parameters of model
+#### Logistic regression
+  - 邏輯回歸是假設資料符合 Bernoulli 分布，並透過 Maximum likelihood estimation 求解，得到常見的 logloss (或稱 cross-entroy)
+  - Entropy (熵): 用來描述事件的不確定性，熵越高則越混亂，熵越低則越秩序
 
 #### Training skills
   - Used when model training encounter overfitting situation
@@ -36,20 +31,20 @@
   - Used when model training encounter dataset is not enough or lack of variablity
     - data augmentation
 
-#### bagging/boosting
-  - Ensemble methoods to combine multiple weak learners to form a strong learner.
-  - bagging
-    - models are built independently in bagging
-    - training data subsets are drawn randomly with a replacement for the training dataset.
-    - For reducing variance.
+#### Ensemble learning
+  - 旨在訓練多個弱分類器 (weak learners)，得到一個強分類器 (strong learners)
+  - Bagging
+    - 各模型獨立訓練，可平行進行; 對訓練數據進行有放回的抽樣，生成多個不同的訓練子集
+    - 預測結果為各分類器投票 (分類任務) 或者平均 (回歸任務)
+    - 旨在減少方差 (Variance)
     - e.g. Random forest
-  - boosting
-    - New models are affected by a previously built model’s performance in boosting.
-    - training data subsets comprises the elements that were misclassified by previous models.
-    - For reducing bias.
+  - Boosting
+    - 在每一次訓練過程中，根據樣本權重訓練一個弱分類器，強調錯誤分類的樣本; 根據分類器的錯誤率更新樣本權重，使得下一次訓練，模型更加關注被前一次分類錯誤的樣本
+    - 預測結果為各分類器的權重和
+    - 旨在減少偏差 (Bias)
     - e.g. Adaboost
      
-#### decision tree/random forest
+#### Decision tree/random forest
 
 #### k-means/k-nn/gaussian mixture model
   - k-means
