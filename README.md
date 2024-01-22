@@ -55,9 +55,12 @@
     - Combining the classification of the K nearest points. It is supervised because you are trying to classify a point based on the known classification of other points.  
 
 #### evaluation metrics
-  - AUC, ROC, PR
-  - recall, precision, F-score
-  - cross-entropy (logloss)
+  - AUC-ROC
+    - 縱軸為 TPR，橫軸為 FPR
+    - 物理意義為，隨機抽取一對正負樣本，模型對正樣本估計值高於負樣本估計值的機率; 旨在衡量模型把正樣本排序在負樣本前面的能力，不考慮預測精度，並且不受分布、採樣、閥值影響。
+  - AUC-PR
+    - 縱軸為 Precision，橫軸為 Recall
+    - 旨在關注正樣本的預測能力，baseline 為 positive / total samples
 
 #### PCA
 
