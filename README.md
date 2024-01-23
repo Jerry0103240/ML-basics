@@ -44,34 +44,39 @@
     - 旨在減少偏差 (Bias)
     - e.g. Adaboost
      
-#### Decision tree/random forest
+#### Decision tree/Random forest
+  - Entropy (熵): 用來描述事件的不確定性，熵越高則越混亂，熵越低則越秩序
+  - Information gain (訊息增益): 描述有多少的熵被移除，增益越大越好
+  - Decision tree
+    - ID3 (Iterative Dichotomiser 3)
+      - 利用 Information gain 作為特徵的選擇，越高就越優先做為決策條件
+    - C4.5
+      - ID3 有個缺點，如果有個 feature (例如流水編號) 把所有資料都切開，則 information gain 就會很大，但實際上沒有作用
+      - 基於 ID3 的理念，額外考慮了分支數的資訊，是為 gain ratio
+    - CART
+      - 使用基尼不純度（Gini impurity）進行衡量，旨在描述某個類別被分錯的機率，因此每個 root 只會有兩個 child
 
-#### k-means/k-nn/gaussian mixture model
-  - k-means
-    - Unsupervised learning
-    - Clustering algorithm that tries to partition a set of points into K sets (clusters) such that the points in each cluster tend to be near each other. It is unsupervised because the points have no external ground truth.
-  - k-nn
-    - Supervised learning
-    - Combining the classification of the K nearest points. It is supervised because you are trying to classify a point based on the known classification of other points.  
+#### K-means/KNN
+  - K-means
+    - 無監督訓練 (無 Label)，聚類算法，旨在將資料分為 K 個群體。
+    - 隨機選擇 K 筆資料 (群心) 作為初始點，計算所有資料與該 K 筆群心的歐式距離，每筆資料會被判定給距離最近的群心，接著更新群心，不斷迭代直到資料不會有太大變動為止。
+    - 對於超參數 K 的選擇與初始位置敏感。
+  - k-NN
+    - 監督訓練
+    - 找尋與該筆資料最近的 K 個鄰居，並利用此 K 個鄰居進行預測。
 
-#### evaluation metrics
+#### Evaluation metrics
   - AUC-ROC
     - 縱軸為 TPR，橫軸為 FPR
     - 物理意義為，隨機抽取一對正負樣本，模型對正樣本估計值高於負樣本估計值的機率; 旨在衡量模型把正樣本排序在負樣本前面的能力，不考慮預測精度，並且不受分布、採樣、閥值影響。
   - AUC-PR
     - 縱軸為 Precision，橫軸為 Recall
     - 旨在關注正樣本的預測能力，baseline 為 positive / total samples
+  - ref.: https://zhuanlan.zhihu.com/p/349516115
 
 #### PCA
 
 #### SVM
-
-#### cross validation
-  - k-fold
-
-#### convolution
-  - kernel size
-  - receptive field
 
 #### activation functions
   - relu, sigmoid, tanh, softmax
