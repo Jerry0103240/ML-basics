@@ -55,6 +55,9 @@
       - 基於 ID3 的理念，額外考慮了分支數的資訊，是為 gain ratio
     - CART
       - 使用基尼不純度（Gini impurity）進行衡量，旨在描述某個類別被分錯的機率，因此每個 root 只會有兩個 child
+  - Random forest
+    - 一群 decision trees，使用 bagging 技術
+    - 會有額外參數調控各 tree 分裂時所嘗試的 feature 次數，目的是為了泛化性，使各 tree 的 correlation 降低
 
 #### K-means/KNN
   - K-means
